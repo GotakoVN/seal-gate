@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="bun test" tests="13" assertions="15" failures="9" skipped="0" time="0.021355">
+  <testsuite name="tests/property/policy.test.ts" file="tests/property/policy.test.ts" tests="13" assertions="15" failures="9" skipped="0" time="0" hostname="Nams-Mac-mini.local">
+    <testsuite name="mandatory Property evidence policy" file="tests/property/policy.test.ts" line="26" tests="13" assertions="15" failures="9" skipped="0" time="0.002" hostname="Nams-Mac-mini.local">
+      <testcase name="missing trusted verifier blocks MUST evidence including JSON-claimed certification" classname="mandatory Property evidence policy" time="0.002261" file="tests/property/policy.test.ts" line="27" assertions="1">
+        <failure type="AssertionError" />
+      </testcase>
+      <testcase name="survived mutant blocks regardless of a high score or optimistic LLM" classname="mandatory Property evidence policy" time="0.000233" file="tests/property/policy.test.ts" line="35" assertions="1">
+        <failure type="AssertionError" />
+      </testcase>
+      <testcase name="invalid mutant blocks regardless of a high score or optimistic LLM" classname="mandatory Property evidence policy" time="0.000097" file="tests/property/policy.test.ts" line="35" assertions="1">
+        <failure type="AssertionError" />
+      </testcase>
+      <testcase name="unavailable mutant blocks regardless of a high score or optimistic LLM" classname="mandatory Property evidence policy" time="0.000095" file="tests/property/policy.test.ts" line="35" assertions="1">
+        <failure type="AssertionError" />
+      </testcase>
+      <testcase name="fresh verified execution and a meaningful killed mutant permits ordinary gate evaluation" classname="mandatory Property evidence policy" time="0.000076" file="tests/property/policy.test.ts" line="44" assertions="2" />
+      <testcase name="stale, under-run or seedless execution cannot establish a passing Property" classname="mandatory Property evidence policy" time="0.000143" file="tests/property/policy.test.ts" line="50" assertions="1">
+        <failure type="AssertionError" />
+      </testcase>
+      <testcase name="unverified equivalence blocks even alongside a genuine killed mutant" classname="mandatory Property evidence policy" time="0.000107" file="tests/property/policy.test.ts" line="58" assertions="1">
+        <failure type="AssertionError" />
+      </testcase>
+      <testcase name="independently verified equivalence excludes a mutant while preserving a meaningful kill" classname="mandatory Property evidence policy" time="0.000063" file="tests/property/policy.test.ts" line="64" assertions="1" />
+      <testcase name="equivalent-only evidence is untested even with independent verified reviews" classname="mandatory Property evidence policy" time="0.000086" file="tests/property/policy.test.ts" line="70" assertions="1">
+        <failure type="AssertionError" />
+      </testcase>
+      <testcase name="missing, duplicate or mismatched contract review cannot cover mandatory Properties" classname="mandatory Property evidence policy" time="0.000135" file="tests/property/policy.test.ts" line="78" assertions="1">
+        <failure type="AssertionError" />
+      </testcase>
+      <testcase name="verifier errors and malformed data fail closed without accepting raw certification" classname="mandatory Property evidence policy" time="0.0001" file="tests/property/policy.test.ts" line="85" assertions="1">
+        <failure type="AssertionError" />
+      </testcase>
+      <testcase name="optional Properties and ordinary Scenarios keep compatible gate evaluation" classname="mandatory Property evidence policy" time="0.000256" file="tests/property/policy.test.ts" line="90" assertions="2" />
+      <testcase name="a plan for a future MUST Property does not require implementation mutation evidence" classname="mandatory Property evidence policy" time="0.000819" file="tests/property/policy.test.ts" line="101" assertions="1" />
+    </testsuite>
+  </testsuite>
+</testsuites>

@@ -1,0 +1,37 @@
+bun test v1.3.14 (0d9b296a)
+
+tests/property/policy.test.ts:
+32 |     expect(result.blocking_issues.some(i => i.rule_id === 'PMUST-01')).toBe(true)
+33 |   })
+34 | 
+35 |   it.each(['must not', 'SHALL NOT'])('mandatory %s spec strength cannot bypass evidence by omitting context', async strength => {
+36 |     const raw = { ...input(), spec: spec.replace('MUST NOT', strength), context: {} }
+37 |     expect((await Seal.review(raw)).verdict).toBe('BLOCK')
+                                                  ^
+error: expect(received).toBe(expected)
+
+Expected: "BLOCK"
+Received: "PASS"
+
+      at <anonymous> (/private/tmp/seal-property-coda-L9VTGo/tests/property/policy.test.ts:37:46)
+(fail) mandatory Property evidence policy > mandatory must not spec strength cannot bypass evidence by omitting context [2.58ms]
+32 |     expect(result.blocking_issues.some(i => i.rule_id === 'PMUST-01')).toBe(true)
+33 |   })
+34 | 
+35 |   it.each(['must not', 'SHALL NOT'])('mandatory %s spec strength cannot bypass evidence by omitting context', async strength => {
+36 |     const raw = { ...input(), spec: spec.replace('MUST NOT', strength), context: {} }
+37 |     expect((await Seal.review(raw)).verdict).toBe('BLOCK')
+                                                  ^
+error: expect(received).toBe(expected)
+
+Expected: "BLOCK"
+Received: "PASS"
+
+      at <anonymous> (/private/tmp/seal-property-coda-L9VTGo/tests/property/policy.test.ts:37:46)
+(fail) mandatory Property evidence policy > mandatory SHALL NOT spec strength cannot bypass evidence by omitting context [0.14ms]
+
+ 0 pass
+ 13 filtered out
+ 2 fail
+ 2 expect() calls
+Ran 2 tests across 1 file. [20.00ms]

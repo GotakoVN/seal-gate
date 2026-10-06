@@ -42,6 +42,12 @@ export class PolicyEngine {
     let verdict: Verdict = base_verdict
     let policy_deductions = 0
 
+    // Mandatory executable Property evidence is a hard gate, independent of
+    // numerical trust score and optional semantic-review optimism.
+    if (all_findings.some(f => f.rule_id?.startsWith('PMUST-') && f.is_blocking)) {
+      verdict = 'BLOCK'
+    }
+
     // Validate risk_level — unknown risk treated as CRITICAL (fail-safe)
     const riskLevelSafe: RiskLevel = RISK_ORDER.includes(risk_level as RiskLevel)
       ? risk_level

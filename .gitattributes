@@ -1,0 +1,2 @@
+# Preserve verbatim runner logs, including source excerpts with trailing spaces.
+orca/archive/**/.harness/evidence/*.log -whitespace

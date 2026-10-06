@@ -1,0 +1,44 @@
+{
+  "scenarios": [
+    {
+      "scenario": "mandatory-mutation-evidence-missing-verifier",
+      "test": "tests/property/policy.test.ts",
+      "assertion": "mandatory Property evidence policy missing trusted verifier blocks MUST evidence including JSON-claimed certification"
+    },
+    {
+      "scenario": "mandatory-mutation-evidence-adverse-outcome",
+      "test": "tests/property/policy.test.ts",
+      "assertion": "mandatory Property evidence policy survived mutant blocks regardless of a high score or optimistic LLM"
+    },
+    {
+      "scenario": "mandatory-mutation-evidence-valid-kill",
+      "test": "tests/property/policy.test.ts",
+      "assertion": "mandatory Property evidence policy fresh verified execution and a meaningful killed mutant permits ordinary gate evaluation"
+    },
+    {
+      "scenario": "reviewed-equivalence-unreviewed-equivalence",
+      "test": "tests/property/policy.test.ts",
+      "assertion": "mandatory Property evidence policy unverified equivalence blocks even alongside a genuine killed mutant"
+    },
+    {
+      "scenario": "reviewed-equivalence-equivalent-only",
+      "test": "tests/property/policy.test.ts",
+      "assertion": "mandatory Property evidence policy equivalent-only evidence is untested even with independent verified reviews"
+    },
+    {
+      "scenario": "compatible-local-integration-ordinary-gate",
+      "test": "tests/property/policy.test.ts",
+      "assertion": "mandatory Property evidence policy optional Properties and ordinary Scenarios keep compatible gate evaluation"
+    },
+    {
+      "scenario": "compatible-local-integration-plan-review",
+      "test": "tests/property/policy.test.ts",
+      "assertion": "mandatory Property evidence policy a plan for a future MUST Property does not require implementation mutation evidence"
+    },
+    {
+      "scenario": "compatible-local-integration-real-receipt-bridge",
+      "test": "tests/property/orca-bridge.test.ts",
+      "assertion": "[compatible-local-integration-real-receipt-bridge] actual runner evidence reaches the packaged Seal policy offline"
+    }
+  ]
+}

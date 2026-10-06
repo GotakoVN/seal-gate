@@ -1,0 +1,166 @@
+{
+  "version": 1,
+  "mode": "executable",
+  "change": "mandatory-property-mutation",
+  "timestamp": "2026-10-06T15:21:03.353Z",
+  "total_scenarios": 8,
+  "passing": 8,
+  "coverage": 1,
+  "threshold": 100,
+  "passed": true,
+  "execution_verified": true,
+  "execution": {
+    "version": 1,
+    "outcome": "green",
+    "source": {
+      "head": "aa1980dc6041ccbeaeb4cfa9d39d874e1f40b9e6",
+      "diff_sha256": "14b507705cb21a8a3fa52b3217c16153256e2699bc0bea39e079017d1762243f",
+      "tree_sha256": "29dcd89d45f4d34b1633b84873957627d9f37ec12ec653ead47534c4a8dccacb"
+    },
+    "tests": {
+      "tests/property/policy.test.ts": "d608426d1b32845c98eb813754644f00095902c14f598a410511a824d81f1067",
+      "tests/property/orca-bridge.test.ts": "b7548a6da02b90b972b303fe6c14a307b0e6efcdd1b22b41aabf7f2e6098eda4"
+    },
+    "runner": {
+      "entry": "/private/tmp/seal-property-coda-L9VTGo/node_modules/vitest/vitest.mjs",
+      "sha256": "39db22f579acf5639bbb17a261408debbde03f4692c0c439e77e7f13aeba74d6",
+      "version": "4.1.11",
+      "node_version": "v26.5.0"
+    },
+    "selection": [
+      {
+        "id": "mandatory-mutation-evidence-missing-verifier",
+        "test": "tests/property/policy.test.ts",
+        "assertion": "mandatory Property evidence policy missing trusted verifier blocks MUST evidence including JSON-claimed certification"
+      },
+      {
+        "id": "mandatory-mutation-evidence-adverse-outcome",
+        "test": "tests/property/policy.test.ts",
+        "assertion": "mandatory Property evidence policy survived mutant blocks regardless of a high score or optimistic LLM"
+      },
+      {
+        "id": "mandatory-mutation-evidence-valid-kill",
+        "test": "tests/property/policy.test.ts",
+        "assertion": "mandatory Property evidence policy fresh verified execution and a meaningful killed mutant permits ordinary gate evaluation"
+      },
+      {
+        "id": "reviewed-equivalence-unreviewed-equivalence",
+        "test": "tests/property/policy.test.ts",
+        "assertion": "mandatory Property evidence policy unverified equivalence blocks even alongside a genuine killed mutant"
+      },
+      {
+        "id": "reviewed-equivalence-equivalent-only",
+        "test": "tests/property/policy.test.ts",
+        "assertion": "mandatory Property evidence policy equivalent-only evidence is untested even with independent verified reviews"
+      },
+      {
+        "id": "compatible-local-integration-ordinary-gate",
+        "test": "tests/property/policy.test.ts",
+        "assertion": "mandatory Property evidence policy optional Properties and ordinary Scenarios keep compatible gate evaluation"
+      },
+      {
+        "id": "compatible-local-integration-plan-review",
+        "test": "tests/property/policy.test.ts",
+        "assertion": "mandatory Property evidence policy a plan for a future MUST Property does not require implementation mutation evidence"
+      },
+      {
+        "id": "compatible-local-integration-real-receipt-bridge",
+        "test": "tests/property/orca-bridge.test.ts",
+        "assertion": "[compatible-local-integration-real-receipt-bridge] actual runner evidence reaches the packaged Seal policy offline"
+      }
+    ],
+    "command": {
+      "executable": "/opt/homebrew/Cellar/node/26.5.0/bin/node",
+      "args": [
+        "/private/tmp/seal-property-coda-L9VTGo/node_modules/vitest/vitest.mjs",
+        "run",
+        "tests/property/policy.test.ts",
+        "tests/property/orca-bridge.test.ts",
+        "--root",
+        "/private/tmp/seal-property-coda-L9VTGo",
+        "--reporter=json",
+        "--outputFile=/var/folders/xx/_15f_6pn4dgb5l2tr2wll6fh0000gn/T/orca-vitest-HK2Kg7/report.json",
+        "--maxWorkers=1",
+        "--no-file-parallelism",
+        "--expect.requireAssertions"
+      ],
+      "exit_code": 0,
+      "stdout": "JSON report written to /var/folders/xx/_15f_6pn4dgb5l2tr2wll6fh0000gn/T/orca-vitest-HK2Kg7/report.json\n",
+      "stderr": ""
+    },
+    "report": "{\"numTotalTestSuites\":3,\"numPassedTestSuites\":3,\"numFailedTestSuites\":0,\"numPendingTestSuites\":0,\"numTotalTests\":16,\"numPassedTests\":16,\"numFailedTests\":0,\"numPendingTests\":0,\"numTodoTests\":0,\"snapshot\":{\"added\":0,\"failure\":false,\"filesAdded\":0,\"filesRemoved\":0,\"filesRemovedList\":[],\"filesUnmatched\":0,\"filesUpdated\":0,\"matched\":0,\"total\":0,\"unchecked\":0,\"uncheckedKeysByFile\":[],\"unmatched\":0,\"updated\":0,\"didUpdate\":false},\"startTime\":1791300045807,\"success\":true,\"testResults\":[{\"assertionResults\":[{\"ancestorTitles\":[],\"fullName\":\"[compatible-local-integration-real-receipt-bridge] actual runner evidence reaches the packaged Seal policy offline\",\"status\":\"passed\",\"title\":\"[compatible-local-integration-real-receipt-bridge] actual runner evidence reaches the packaged Seal policy offline\",\"duration\":17218.717,\"failureMessages\":[],\"meta\":{},\"tags\":[]}],\"startTime\":1791300045884,\"endTime\":1791300063102.717,\"status\":\"passed\",\"message\":\"\",\"name\":\"/private/tmp/seal-property-coda-L9VTGo/tests/property/orca-bridge.test.ts\"},{\"assertionResults\":[{\"ancestorTitles\":[\"mandatory Property evidence policy\"],\"fullName\":\"mandatory Property evidence policy missing trusted verifier blocks MUST evidence including JSON-claimed certification\",\"status\":\"passed\",\"title\":\"missing trusted verifier blocks MUST evidence including JSON-claimed certification\",\"duration\":4.081540999999987,\"failureMessages\":[],\"meta\":{},\"tags\":[]},{\"ancestorTitles\":[\"mandatory Property evidence policy\"],\"fullName\":\"mandatory Property evidence policy mandatory must not spec strength cannot bypass evidence by omitting context\",\"status\":\"passed\",\"title\":\"mandatory must not spec strength cannot bypass evidence by omitting context\",\"duration\":1.214790999999991,\"failureMessages\":[],\"meta\":{},\"tags\":[]},{\"ancestorTitles\":[\"mandatory Property evidence policy\"],\"fullName\":\"mandatory Property evidence policy mandatory SHALL NOT spec strength cannot bypass evidence by omitting context\",\"status\":\"passed\",\"title\":\"mandatory SHALL NOT spec strength cannot bypass evidence by omitting context\",\"duration\":0.24762499999999932,\"failureMessages\":[],\"meta\":{},\"tags\":[]},{\"ancestorTitles\":[\"mandatory Property evidence policy\"],\"fullName\":\"mandatory Property evidence policy survived mutant blocks regardless of a high score or optimistic LLM\",\"status\":\"passed\",\"title\":\"survived mutant blocks regardless of a high score or optimistic LLM\",\"duration\":0.37829099999999016,\"failureMessages\":[],\"meta\":{},\"tags\":[]},{\"ancestorTitles\":[\"mandatory Property evidence policy\"],\"fullName\":\"mandatory Property evidence policy invalid mutant blocks regardless of a high score or optimistic LLM\",\"status\":\"passed\",\"title\":\"invalid mutant blocks regardless of a high score or optimistic LLM\",\"duration\":0.2236249999999984,\"failureMessages\":[],\"meta\":{},\"tags\":[]},{\"ancestorTitles\":[\"mandatory Property evidence policy\"],\"fullName\":\"mandatory Property evidence policy unavailable mutant blocks regardless of a high score or optimistic LLM\",\"status\":\"passed\",\"title\":\"unavailable mutant blocks regardless of a high score or optimistic LLM\",\"duration\":0.22420900000000188,\"failureMessages\":[],\"meta\":{},\"tags\":[]},{\"ancestorTitles\":[\"mandatory Property evidence policy\"],\"fullName\":\"mandatory Property evidence policy fresh verified execution and a meaningful killed mutant permits ordinary gate evaluation\",\"status\":\"passed\",\"title\":\"fresh verified execution and a meaningful killed mutant permits ordinary gate evaluation\",\"duration\":0.45224999999999227,\"failureMessages\":[],\"meta\":{},\"tags\":[]},{\"ancestorTitles\":[\"mandatory Property evidence policy\"],\"fullName\":\"mandatory Property evidence policy stale, under-run or seedless execution cannot establish a passing Property\",\"status\":\"passed\",\"title\":\"stale, under-run or seedless execution cannot establish a passing Property\",\"duration\":0.4168329999999969,\"failureMessages\":[],\"meta\":{},\"tags\":[]},{\"ancestorTitles\":[\"mandatory Property evidence policy\"],\"fullName\":\"mandatory Property evidence policy unverified equivalence blocks even alongside a genuine killed mutant\",\"status\":\"passed\",\"title\":\"unverified equivalence blocks even alongside a genuine killed mutant\",\"duration\":0.13879199999999514,\"failureMessages\":[],\"meta\":{},\"tags\":[]},{\"ancestorTitles\":[\"mandatory Property evidence policy\"],\"fullName\":\"mandatory Property evidence policy independently verified equivalence excludes a mutant while preserving a meaningful kill\",\"status\":\"passed\",\"title\":\"independently verified equivalence excludes a mutant while preserving a meaningful kill\",\"duration\":0.1438750000000084,\"failureMessages\":[],\"meta\":{},\"tags\":[]},{\"ancestorTitles\":[\"mandatory Property evidence policy\"],\"fullName\":\"mandatory Property evidence policy equivalent-only evidence is untested even with independent verified reviews\",\"status\":\"passed\",\"title\":\"equivalent-only evidence is untested even with independent verified reviews\",\"duration\":0.11025000000000773,\"failureMessages\":[],\"meta\":{},\"tags\":[]},{\"ancestorTitles\":[\"mandatory Property evidence policy\"],\"fullName\":\"mandatory Property evidence policy missing, duplicate or mismatched contract review cannot cover mandatory Properties\",\"status\":\"passed\",\"title\":\"missing, duplicate or mismatched contract review cannot cover mandatory Properties\",\"duration\":0.23858400000000302,\"failureMessages\":[],\"meta\":{},\"tags\":[]},{\"ancestorTitles\":[\"mandatory Property evidence policy\"],\"fullName\":\"mandatory Property evidence policy verifier errors and malformed data fail closed without accepting raw certification\",\"status\":\"passed\",\"title\":\"verifier errors and malformed data fail closed without accepting raw certification\",\"duration\":0.19270899999997937,\"failureMessages\":[],\"meta\":{},\"tags\":[]},{\"ancestorTitles\":[\"mandatory Property evidence policy\"],\"fullName\":\"mandatory Property evidence policy optional Properties and ordinary Scenarios keep compatible gate evaluation\",\"status\":\"passed\",\"title\":\"optional Properties and ordinary Scenarios keep compatible gate evaluation\",\"duration\":0.1734170000000006,\"failureMessages\":[],\"meta\":{},\"tags\":[]},{\"ancestorTitles\":[\"mandatory Property evidence policy\"],\"fullName\":\"mandatory Property evidence policy a plan for a future MUST Property does not require implementation mutation evidence\",\"status\":\"passed\",\"title\":\"a plan for a future MUST Property does not require implementation mutation evidence\",\"duration\":0.853334000000018,\"failureMessages\":[],\"meta\":{},\"tags\":[]}],\"startTime\":1791300063257,\"endTime\":1791300063266.8533,\"status\":\"passed\",\"message\":\"\",\"name\":\"/private/tmp/seal-property-coda-L9VTGo/tests/property/policy.test.ts\"}]}",
+    "report_sha256": "168117779f40cdd33c74574c23407e46f0a3d6de5b1378e4ceee8893aa12d74e",
+    "property_report": "[]",
+    "property_report_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "property_invocation": "1ac1abc9-4492-437f-8c9c-3beb7374dc12",
+    "assertions": [
+      {
+        "id": "mandatory-mutation-evidence-missing-verifier",
+        "test": "tests/property/policy.test.ts",
+        "name": "mandatory Property evidence policy missing trusted verifier blocks MUST evidence including JSON-claimed certification",
+        "status": "passed",
+        "failures": []
+      },
+      {
+        "id": "mandatory-mutation-evidence-adverse-outcome",
+        "test": "tests/property/policy.test.ts",
+        "name": "mandatory Property evidence policy survived mutant blocks regardless of a high score or optimistic LLM",
+        "status": "passed",
+        "failures": []
+      },
+      {
+        "id": "mandatory-mutation-evidence-valid-kill",
+        "test": "tests/property/policy.test.ts",
+        "name": "mandatory Property evidence policy fresh verified execution and a meaningful killed mutant permits ordinary gate evaluation",
+        "status": "passed",
+        "failures": []
+      },
+      {
+        "id": "reviewed-equivalence-unreviewed-equivalence",
+        "test": "tests/property/policy.test.ts",
+        "name": "mandatory Property evidence policy unverified equivalence blocks even alongside a genuine killed mutant",
+        "status": "passed",
+        "failures": []
+      },
+      {
+        "id": "reviewed-equivalence-equivalent-only",
+        "test": "tests/property/policy.test.ts",
+        "name": "mandatory Property evidence policy equivalent-only evidence is untested even with independent verified reviews",
+        "status": "passed",
+        "failures": []
+      },
+      {
+        "id": "compatible-local-integration-ordinary-gate",
+        "test": "tests/property/policy.test.ts",
+        "name": "mandatory Property evidence policy optional Properties and ordinary Scenarios keep compatible gate evaluation",
+        "status": "passed",
+        "failures": []
+      },
+      {
+        "id": "compatible-local-integration-plan-review",
+        "test": "tests/property/policy.test.ts",
+        "name": "mandatory Property evidence policy a plan for a future MUST Property does not require implementation mutation evidence",
+        "status": "passed",
+        "failures": []
+      },
+      {
+        "id": "compatible-local-integration-real-receipt-bridge",
+        "test": "tests/property/orca-bridge.test.ts",
+        "name": "[compatible-local-integration-real-receipt-bridge] actual runner evidence reaches the packaged Seal policy offline",
+        "status": "passed",
+        "failures": []
+      }
+    ],
+    "reasons": [],
+    "started_at": "2026-10-06T15:20:45.675Z",
+    "finished_at": "2026-10-06T15:21:03.352Z"
+  },
+  "replay": null,
+  "inputs": {
+    "orca/changes/mandatory-property-mutation/specs/mandatory-property-mutation/spec.md": "f8e26d1f7627f4fe14dc035b22d91131e2797c3a62fcf2c7317609be0f3bfe66",
+    "orca/changes/mandatory-property-mutation/.traceability.yaml": "f227d981d0d87d3ca5da65fe75cb872c548843c3f791d6b3c943925858075fd1",
+    "orca/changes/mandatory-property-mutation/intent.md": "9a976603b86b3389e9555508ca52a1b2f6619597181f84ebfbba040d2d74ca6d"
+  },
+  "reasons": [],
+  "uncovered": []
+}
