@@ -7,9 +7,9 @@ import { resolve } from 'node:path';
 const orcaRoot = process.env.ORCA_TEST_ROOT;
 it.skipIf(!orcaRoot)('[compatible-local-integration-real-receipt-bridge] actual runner evidence reaches the packaged Seal policy offline', () => {
   const script = String.raw`
-import {mkdtempSync,mkdirSync,writeFileSync,readFileSync,symlinkSync,rmSync} from 'node:fs';
+import {mkdtempSync,mkdirSync,writeFileSync,readFileSync,readdirSync,symlinkSync,rmSync} from 'node:fs';
 import {generateKeyPairSync,sign} from 'node:crypto';
-import {tmpdir} from 'node:os';import {join} from 'node:path';import {pathToFileURL} from 'node:url';import {execFileSync} from 'node:child_process';
+import {tmpdir} from 'node:os';import {join} from 'node:path';import {pathToFileURL} from 'node:url';import {execFileSync,spawnSync} from 'node:child_process';
 const orca=process.env.ORCA_TEST_ROOT,seal=process.env.SEAL_TEST_ROOT;
 const {createPropertySealBridge}=await import(pathToFileURL(join(orca,'dist/harness/property-seal.js')));
 const {probeMutation,equivalenceDigest}=await import(pathToFileURL(join(orca,'dist/property/mutation.js')));
@@ -25,7 +25,7 @@ for(const [kind,after] of [['killed','export const value=3;'],['survived','expor
  writeFileSync(join(dir,'.traceability.yaml'),JSON.stringify({scenarios:[{scenario:'value-correct',test:'tests/value.test.js',generators:['tests/value.test.js'],corpus:'orca/corpus/value-correct.json'}]}));
  const helper=pathToFileURL(join(orca,'dist/property/runtime.js')).href;
  writeFileSync(join(root,'tests/value.test.js'),"import {it,expect} from 'vitest';import {value} from '../source.js';import {assertProperty,fc} from "+JSON.stringify(helper)+";it('[value-correct]',async()=>{const r=await assertProperty({id:'value-correct',seed:31,numRuns:10,corpus:'orca/corpus/value-correct.json',arbitrary:fc.integer(),predicate:()=>value===2});expect(r.failed).toBe(false);});");
- symlinkSync(join(orca,'node_modules'),join(root,'node_modules'),'dir');execFileSync('git',['init','-q'],{cwd:root});execFileSync('git',['add','.'],{cwd:root});execFileSync('git',['-c','user.name=fixture','-c','user.email=f@example.invalid','commit','-qm','base'],{cwd:root});
+ symlinkSync(process.env.ORCA_TEST_NODE_MODULES||join(orca,'node_modules'),join(root,'node_modules'),'dir');execFileSync('git',['init','-q'],{cwd:root});execFileSync('git',['add','.'],{cwd:root});execFileSync('git',['-c','user.name=fixture','-c','user.email=f@example.invalid','commit','-qm','base'],{cwd:root});
  const selection=readTestContract(root,dir,'demo').selection;
  let reviewersFile;
  if(after){const p=probeMutation(root,selection,{version:1,id:'value-mutant',rationale:'Change required value',changes:[{path:'source.js',before_sha256:hashBytes(readFileSync(join(root,'source.js'))),after}]});
@@ -37,7 +37,14 @@ for(const [kind,after] of [['killed','export const value=3;'],['survived','expor
  mkdirSync(join(dir,'.harness/property-probes'),{recursive:true});writeFileSync(join(dir,'.harness/property-probes/value-mutant.json'),JSON.stringify(p));
  if(kind==='equivalent'){const kill=probeMutation(root,selection,{version:1,id:'meaningful-kill',rationale:'Violate required value',changes:[{path:'source.js',before_sha256:hashBytes(readFileSync(join(root,'source.js'))),after:'export const value=3;'}]});writeFileSync(join(dir,'.harness/property-probes/meaningful-kill.json'),JSON.stringify(kill));}
  }
- const bridge=createPropertySealBridge(root,dir,'demo',{reviewersFile});const review=await Seal.review({artifact_type:'code_diff',spec,output:'value equals two',context:{property_contracts:bridge.contracts}},{propertyEvidenceVerifier:bridge.verify});
+ const bridge=createPropertySealBridge(root,dir,'demo',{reviewersFile});let review;
+ if(process.env.ORCA_TEST_GATE_CLI){
+ const fence=String.fromCharCode(96).repeat(3);writeFileSync(join(dir,'self-check.md'),'# Self-Check\n\n## Claims\n- value equals two\n\n## Evidence\n'+fence+'json\n'+JSON.stringify([{type:'command',command:'npm test',exit_code:0,output:'Property value equals two; actual seeded mutation regression evidence'}])+'\n'+fence+'\n');
+ const cliRun=spawnSync(process.execPath,[process.env.ORCA_TEST_GATE_CLI,'gate-code','demo'],{cwd:root,encoding:'utf8',env:{...process.env,ORCA_REVIEWERS_FILE:reviewersFile}});
+ const verdictDir=join(dir,'.harness/gate-verdicts'),latest=readdirSync(verdictDir).filter(p=>p.endsWith('.json')).sort().at(-1);
+ if(!latest)throw Error('No installed gate receipt: '+cliRun.stdout+cliRun.stderr);
+ review=JSON.parse(readFileSync(join(verdictDir,latest),'utf8'));
+ }else review=await Seal.review({artifact_type:'code_diff',spec,output:'value equals two',context:{property_contracts:bridge.contracts}},{propertyEvidenceVerifier:bridge.verify});
  results.push({kind,verdict:review.verdict,pmust:review.blocking_issues.filter(i=>i.rule_id?.startsWith('PMUST')).map(i=>i.rule_id)});
  }finally{rmSync(root,{recursive:true,force:true});rmSync(keys,{recursive:true,force:true});}
 }
