@@ -1,0 +1,20 @@
+[
+  {
+    "id": "SC-1",
+    "text": "SC-1: keyword-absent Property requirements block when evidence is missing.",
+    "source_file": "intent.md",
+    "source_line": 13
+  },
+  {
+    "id": "SC-2",
+    "text": "SC-2: a strength word in a title does not override the description; explicit optional prose remains optional.",
+    "source_file": "intent.md",
+    "source_line": 14
+  },
+  {
+    "id": "SC-3",
+    "text": "SC-3: default-SHALL evidence with a genuine verified kill reaches ordinary gate evaluation.",
+    "source_file": "intent.md",
+    "source_line": 15
+  }
+]

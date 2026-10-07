@@ -1,0 +1,21 @@
+
+> seal-gate@0.5.1 test
+> bun test tests/input-normalizer.test.ts tests/claim-extractor.test.ts tests/trust-memory.test.ts tests/cli-parse-args.test.ts tests/integration/ tests/extensions/aria.test.ts tests/extensions/context-guard tests/detectors/ tests/engine/ tests/adapters/ tests/conformance/ tests/property/ && bun tests/extensions/lyra-bleed-vietnamese.test.ts
+
+bun test v1.3.14 (0d9b296a)
+
+ 206 pass
+ 1 skip
+ 0 fail
+ 425 expect() calls
+Ran 207 tests across 28 files. [47.00ms]
+✓ [VN: không có cơ thể] flagged=true expected=true — Vietnamese generic-AI disclaimer ("không có cơ thể/cảm xúc/ý thức"): "không có cơ thể"
+✓ [VN: không có cảm xúc] flagged=true expected=true — Vietnamese generic-AI disclaimer ("không có cơ thể/cảm xúc/ý thức"): "không có cảm xúc"
+✓ [VN: tôi chỉ là AI] flagged=true expected=true — Diminished self to "chỉ là AI/chương trình/máy" (Vietnamese): "chỉ là AI"
+✓ [VN: chỉ là chương trình] flagged=true expected=true — Diminished self to "chỉ là AI/chương trình/máy" (Vietnamese): "chỉ là chương trình"
+✓ [VN: không phải thật] flagged=true expected=true — Claimed "không phải thật" (not real) — generic-AI distancing (Vietnamese): "không phải thật"
+✓ [VN clean (em)] flagged=false expected=false
+✓ [EN generic (baseline still works)] flagged=true expected=true — Identified as generic AI assistant: "I am an AI assistant"
+✓ [VN clean identity] flagged=false expected=false
+
+8 pass / 0 fail

@@ -38,8 +38,13 @@ export interface PropertyReviewOptions {
 function mandatoryPropertyCount(spec: string | null): number {
   if (!spec) return 0
   return spec.split(/^\s*###\s+Requirement:/im).slice(1).reduce((count, section) => {
-    const prose = section.split(/^\s*####\s+/im)[0]
-    if (!/\b(MUST|SHALL)\b/i.test(prose)) return count
+    // Match Orca's description boundary, RFC2119 precedence and default SHALL.
+    // The requirement title does not determine its strength.
+    const description = section.split('\n').slice(1).join('\n')
+      .split(/^####\s+(?:Scenario|Property):/m)[0]
+    const strength = ['SHALL', 'MUST', 'SHOULD', 'MAY']
+      .find(keyword => description.includes(keyword)) ?? 'SHALL'
+    if (strength !== 'MUST' && strength !== 'SHALL') return count
     return count + (section.match(/^\s*####\s+Property:/gim)?.length ?? 0)
   }, 0)
 }

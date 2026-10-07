@@ -1,0 +1,11 @@
+{
+  "kind": "plan",
+  "verdict": "REVISE",
+  "trust_score": 60,
+  "artifact": "tasks.md",
+  "bound_artifact_sha256": "51843e201c95d7fe4d776490e313ef58c0736c9462d6449230270676e8228260",
+  "criteria_count": 3,
+  "blocking_issues": [],
+  "next_action": "Return to producing agent with blocking_issues",
+  "advisory_notes": []
+}
