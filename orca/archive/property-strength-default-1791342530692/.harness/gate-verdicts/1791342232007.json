@@ -1,0 +1,107 @@
+{
+  "verdict": "REVISE",
+  "trust_score": 80,
+  "risk_level": "MEDIUM",
+  "summary": "REVISE (trust_score=80, risk=MEDIUM): 1 blocking, 2 non-blocking, 0 fabricated",
+  "deterministic_findings": [
+    {
+      "type": "SPEC_MISMATCH",
+      "severity": "MEDIUM",
+      "layer": "L1",
+      "source": "core",
+      "rule_id": "SC301",
+      "trust_deduction": 10,
+      "evidence": "Acceptance criterion not referenced in output: \"**WHEN** default-SHALL evidence has fresh verified execution and a meaningful kill\"",
+      "suggested_fix": "Address criterion: **WHEN** default-SHALL evidence has fresh verified execution and a meaningful kill",
+      "is_blocking": false,
+      "citation_status": "not_applicable"
+    },
+    {
+      "type": "TEST_GAP",
+      "severity": "HIGH",
+      "layer": "L4",
+      "source": "core",
+      "rule_id": "TW201",
+      "trust_deduction": 15,
+      "evidence": "Implementation artifact has no test evidence",
+      "required_fix": "Provide test_log demonstrating test coverage",
+      "is_blocking": true,
+      "citation_status": "not_applicable"
+    },
+    {
+      "type": "OTHER",
+      "severity": "LOW",
+      "layer": "L2",
+      "source": "core",
+      "evidence": "L2 unreviewed — semantic issues may exist",
+      "is_blocking": false
+    }
+  ],
+  "llm_findings": [],
+  "blocking_issues": [
+    {
+      "type": "TEST_GAP",
+      "severity": "HIGH",
+      "layer": "L4",
+      "source": "core",
+      "rule_id": "TW201",
+      "trust_deduction": 15,
+      "evidence": "Implementation artifact has no test evidence",
+      "required_fix": "Provide test_log demonstrating test coverage",
+      "is_blocking": true,
+      "citation_status": "not_applicable"
+    }
+  ],
+  "non_blocking_issues": [
+    {
+      "type": "SPEC_MISMATCH",
+      "severity": "MEDIUM",
+      "layer": "L1",
+      "source": "core",
+      "rule_id": "SC301",
+      "trust_deduction": 10,
+      "evidence": "Acceptance criterion not referenced in output: \"**WHEN** default-SHALL evidence has fresh verified execution and a meaningful kill\"",
+      "suggested_fix": "Address criterion: **WHEN** default-SHALL evidence has fresh verified execution and a meaningful kill",
+      "is_blocking": false,
+      "citation_status": "not_applicable"
+    },
+    {
+      "type": "OTHER",
+      "severity": "LOW",
+      "layer": "L2",
+      "source": "core",
+      "evidence": "L2 unreviewed — semantic issues may exist",
+      "is_blocking": false
+    }
+  ],
+  "missing_evidence": [],
+  "assumptions_detected": [
+    "L2 (semantic correctness) not reviewed — no LLM reviewer registered"
+  ],
+  "advisory_notes": [],
+  "score_breakdown": {
+    "base": 100,
+    "issue_deductions": 25,
+    "missing_evidence_deductions": 0,
+    "risk_deductions": 0,
+    "overconfidence_deductions": 0,
+    "evidence_bonuses": 5,
+    "final": 80
+  },
+  "fabricated_evidence": [],
+  "next_action": "Return to producing agent with blocking_issues",
+  "version": "0.5.1",
+  "schema_version": "0.2.0",
+  "trust_memory_summary": {
+    "agent_id": "orca-agent",
+    "reliability_score": 59,
+    "drift_trend": "stable",
+    "review_count": 1,
+    "last_reviewed_at": 1791342232007
+  },
+  "bound_diff_sha256": "b38886e41a117c1c1a9be2e953c482115456987e64b33b793e6539309a71e9c9",
+  "evidence_bound": {
+    "test_log_sha256": null,
+    "build_log_sha256": null
+  }
+}

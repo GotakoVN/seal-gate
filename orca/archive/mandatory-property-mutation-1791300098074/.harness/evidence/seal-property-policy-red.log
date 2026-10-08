@@ -1,0 +1,134 @@
+bun test v1.3.14 (0d9b296a)
+
+tests/property/policy.test.ts:
+26 | describe('mandatory Property evidence policy', () => {
+27 |   it('missing trusted verifier blocks MUST evidence including JSON-claimed certification', async () => {
+28 |     const raw = input()
+29 |     raw.context = { ...raw.context, property_reviews: [review()], verified: true } as typeof raw.context
+30 |     const result = await Seal.review(raw)
+31 |     expect(result.verdict).toBe('BLOCK')
+                                ^
+error: expect(received).toBe(expected)
+
+Expected: "BLOCK"
+Received: "PASS"
+
+      at <anonymous> (/private/tmp/seal-property-coda-L9VTGo/tests/property/policy.test.ts:31:28)
+(fail) mandatory Property evidence policy > missing trusted verifier blocks MUST evidence including JSON-claimed certification [2.26ms]
+35 |   it.each(['survived', 'invalid', 'unavailable'])('%s mutant blocks regardless of a high score or optimistic LLM', async outcome => {
+36 |     Seal.withLLM({ review: async () => ({ confidence: 1, issues: [], contradictions: [], hallucinations: [], ambiguities: [], uncertainty_signals: [] }) })
+37 |     const result = review()
+38 |     result.mutants = [{ id: 'future-data', outcome }]
+39 |     const verdict = await Seal.review(input(), options(result))
+40 |     expect(verdict.verdict).toBe('BLOCK')
+                                 ^
+error: expect(received).toBe(expected)
+
+Expected: "BLOCK"
+Received: "PASS"
+
+      at <anonymous> (/private/tmp/seal-property-coda-L9VTGo/tests/property/policy.test.ts:40:29)
+(fail) mandatory Property evidence policy > survived mutant blocks regardless of a high score or optimistic LLM [0.23ms]
+35 |   it.each(['survived', 'invalid', 'unavailable'])('%s mutant blocks regardless of a high score or optimistic LLM', async outcome => {
+36 |     Seal.withLLM({ review: async () => ({ confidence: 1, issues: [], contradictions: [], hallucinations: [], ambiguities: [], uncertainty_signals: [] }) })
+37 |     const result = review()
+38 |     result.mutants = [{ id: 'future-data', outcome }]
+39 |     const verdict = await Seal.review(input(), options(result))
+40 |     expect(verdict.verdict).toBe('BLOCK')
+                                 ^
+error: expect(received).toBe(expected)
+
+Expected: "BLOCK"
+Received: "PASS"
+
+      at <anonymous> (/private/tmp/seal-property-coda-L9VTGo/tests/property/policy.test.ts:40:29)
+(fail) mandatory Property evidence policy > invalid mutant blocks regardless of a high score or optimistic LLM [0.10ms]
+35 |   it.each(['survived', 'invalid', 'unavailable'])('%s mutant blocks regardless of a high score or optimistic LLM', async outcome => {
+36 |     Seal.withLLM({ review: async () => ({ confidence: 1, issues: [], contradictions: [], hallucinations: [], ambiguities: [], uncertainty_signals: [] }) })
+37 |     const result = review()
+38 |     result.mutants = [{ id: 'future-data', outcome }]
+39 |     const verdict = await Seal.review(input(), options(result))
+40 |     expect(verdict.verdict).toBe('BLOCK')
+                                 ^
+error: expect(received).toBe(expected)
+
+Expected: "BLOCK"
+Received: "PASS"
+
+      at <anonymous> (/private/tmp/seal-property-coda-L9VTGo/tests/property/policy.test.ts:40:29)
+(fail) mandatory Property evidence policy > unavailable mutant blocks regardless of a high score or optimistic LLM [0.10ms]
+48 |   })
+49 | 
+50 |   it('stale, under-run or seedless execution cannot establish a passing Property', async () => {
+51 |     for (const delta of [{ fresh: false }, { runs_actual: 999 }, { seed: undefined }]) {
+52 |       const result = await Seal.review(input(), options({ ...review(), ...delta }))
+53 |       expect(result.verdict).toBe('BLOCK')
+                                  ^
+error: expect(received).toBe(expected)
+
+Expected: "BLOCK"
+Received: "PASS"
+
+      at <anonymous> (/private/tmp/seal-property-coda-L9VTGo/tests/property/policy.test.ts:53:30)
+(fail) mandatory Property evidence policy > stale, under-run or seedless execution cannot establish a passing Property [0.14ms]
+56 |   })
+57 | 
+58 |   it('unverified equivalence blocks even alongside a genuine killed mutant', async () => {
+59 |     const result = review()
+60 |     result.mutants.push({ id: 'equivalent-future-data', outcome: 'equivalent', equivalence_verified: false })
+61 |     expect((await Seal.review(input(), options(result))).verdict).toBe('BLOCK')
+                                                                       ^
+error: expect(received).toBe(expected)
+
+Expected: "BLOCK"
+Received: "PASS"
+
+      at <anonymous> (/private/tmp/seal-property-coda-L9VTGo/tests/property/policy.test.ts:61:67)
+(fail) mandatory Property evidence policy > unverified equivalence blocks even alongside a genuine killed mutant [0.11ms]
+69 | 
+70 |   it('equivalent-only evidence is untested even with independent verified reviews', async () => {
+71 |     const result = review()
+72 |     result.mutants = [{ id: 'equivalent-future-data', outcome: 'equivalent', equivalence_verified: true }]
+73 |     const verdict = await Seal.review(input(), options(result))
+74 |     expect(verdict.verdict).toBe('BLOCK')
+                                 ^
+error: expect(received).toBe(expected)
+
+Expected: "BLOCK"
+Received: "PASS"
+
+      at <anonymous> (/private/tmp/seal-property-coda-L9VTGo/tests/property/policy.test.ts:74:29)
+(fail) mandatory Property evidence policy > equivalent-only evidence is untested even with independent verified reviews [0.09ms]
+76 |   })
+77 | 
+78 |   it('missing, duplicate or mismatched contract review cannot cover mandatory Properties', async () => {
+79 |     for (const reviews of [[], [review(), review()], [{ ...review(), contract_sha256: 'b'.repeat(64) }],
+80 |       [{ ...review(), property_id: 'another-property' }]]) {
+81 |       expect((await Seal.review(input(), { propertyEvidenceVerifier: async () => reviews })).verdict).toBe('BLOCK')
+                                                                                                           ^
+error: expect(received).toBe(expected)
+
+Expected: "BLOCK"
+Received: "PASS"
+
+      at <anonymous> (/private/tmp/seal-property-coda-L9VTGo/tests/property/policy.test.ts:81:103)
+(fail) mandatory Property evidence policy > missing, duplicate or mismatched contract review cannot cover mandatory Properties [0.13ms]
+81 |       expect((await Seal.review(input(), { propertyEvidenceVerifier: async () => reviews })).verdict).toBe('BLOCK')
+82 |     }
+83 |   })
+84 | 
+85 |   it('verifier errors and malformed data fail closed without accepting raw certification', async () => {
+86 |     expect((await Seal.review(input(), { propertyEvidenceVerifier: async () => { throw new Error('Runner unavailable') } })).verdict).toBe('BLOCK')
+                                                                                                                                           ^
+error: expect(received).toBe(expected)
+
+Expected: "BLOCK"
+Received: "PASS"
+
+      at <anonymous> (/private/tmp/seal-property-coda-L9VTGo/tests/property/policy.test.ts:86:135)
+(fail) mandatory Property evidence policy > verifier errors and malformed data fail closed without accepting raw certification [0.10ms]
+
+ 4 pass
+ 9 fail
+ 15 expect() calls
+Ran 13 tests across 1 file. [21.00ms]

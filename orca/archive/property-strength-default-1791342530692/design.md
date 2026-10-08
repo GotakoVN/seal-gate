@@ -1,0 +1,2 @@
+# Design
+Use the same leading description (excluding title; before first Scenario/Property) and strength priority SHALL,MUST,SHOULD,MAY as Orca src/spec/parser.ts. Missing keyword defaults SHALL. No new dependency or Property ID grammar. Exercise the real Seal.review path, not a duplicated helper-only test. Capture assertion RED before production edits; native tests and build, executable verify and Seal gates follow.

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "SC-1",
+    "text": "SC-1: missing, forged, stale, invalid, unavailable or surviving MUST evidence blocks even when score/LLM are favorable.",
+    "source_file": "intent.md",
+    "source_line": 13
+  },
+  {
+    "id": "SC-2",
+    "text": "SC-2: fresh validated execution plus at least one killed mutant and no unresolved mutants can pass the mutation policy.",
+    "source_file": "intent.md",
+    "source_line": 14
+  },
+  {
+    "id": "SC-3",
+    "text": "SC-3: independently verified equivalence can exclude one mutant but an equivalent-only set remains untested.",
+    "source_file": "intent.md",
+    "source_line": 15
+  },
+  {
+    "id": "SC-4",
+    "text": "SC-4: optional Properties, ordinary Scenario gates and plan review retain compatible behavior.",
+    "source_file": "intent.md",
+    "source_line": 16
+  },
+  {
+    "id": "SC-5",
+    "text": "SC-5: actual Orca execution/receipt validation reaches the Seal decision in a local integration test and the deployed CLI.",
+    "source_file": "intent.md",
+    "source_line": 17
+  }
+]

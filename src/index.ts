@@ -16,6 +16,7 @@ import { ExtensionRegistry } from './engine/extension-registry.js'
 import { VerdictFormatter } from './engine/verdict-formatter.js'
 import { CitationVerifier, AbsencePattern } from './engine/citation-verifier.js'
 import { runPlanReviewPipeline } from './engine/plan-review-pipeline.js'
+import { evaluatePropertyEvidence, type PropertyReviewOptions } from './property/policy.js'
 
 const registry = new ExtensionRegistry()
 let llmAdapter: LLMReviewerAdapter | null = null
@@ -38,7 +39,7 @@ export const Seal = {
     trustMemory = mem
   },
 
-  async review(rawInput: Partial<SealInput>): Promise<SealVerdict> {
+  async review(rawInput: Partial<SealInput>, options: PropertyReviewOptions = {}): Promise<SealVerdict> {
     // Step 1: Normalize input
     const input = InputNormalizer.normalize(rawInput)
 
@@ -120,6 +121,7 @@ export const Seal = {
 
     // Collect all detector findings
     const allDetectorFindings: SealIssue[] = [
+      ...await evaluatePropertyEvidence(input, options),
       ...evidenceIssues,
       ...gapResult.issues,
       ...specDetectorResult.issues,
@@ -327,3 +329,5 @@ export { createReviewer, createMinimaxReviewer, createFireworksReviewer, createG
 export { SpecCoverageValidator } from './detectors/spec-coverage-validator.js'
 export { checkTestPinsBehavior, breedMutations } from './spec/mutation-probe.js'
 export { SealInputError } from './errors.js'
+export { evaluatePropertyEvidence } from './property/policy.js'
+export type { PropertyContract, PropertyEvidenceReview, PropertyReviewOptions } from './property/policy.js'

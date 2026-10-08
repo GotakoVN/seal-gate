@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "mode": "executable",
+  "change": "property-strength-default",
+  "timestamp": "2026-10-07T03:03:51.893Z",
+  "total_scenarios": 3,
+  "passing": 3,
+  "coverage": 1,
+  "threshold": 100,
+  "passed": true,
+  "execution_verified": true,
+  "execution": {
+    "version": 1,
+    "outcome": "green",
+    "source": {
+      "head": "df6cc3c6ac96f6446a87a54446228c73c9b353ab",
+      "diff_sha256": "b38886e41a117c1c1a9be2e953c482115456987e64b33b793e6539309a71e9c9",
+      "tree_sha256": "762bd22ad2a82305f329bb9dd7cb518d5df66518820d7eb6c966f47835ca81d4"
+    },
+    "tests": {
+      "tests/property/strength-default.test.ts": "f31fd9fc236118df70b107c0f20d349cd52f5deb897b069b1406bd2c067c4f59"
+    },
+    "runner": {
+      "entry": "/private/tmp/seal-property-coda-L9VTGo/node_modules/vitest/vitest.mjs",
+      "sha256": "39db22f579acf5639bbb17a261408debbde03f4692c0c439e77e7f13aeba74d6",
+      "version": "4.1.11",
+      "node_version": "v26.5.0"
+    },
+    "selection": [
+      {
+        "id": "canonical-strength-missing-keyword",
+        "test": "tests/property/strength-default.test.ts",
+        "assertion": "canonical Property strength default blocks omitted evidence"
+      },
+      {
+        "id": "canonical-strength-description-boundary",
+        "test": "tests/property/strength-default.test.ts",
+        "assertion": "canonical Property strength ignores title keywords and preserves explicit optional prose"
+      },
+      {
+        "id": "canonical-strength-verified-default",
+        "test": "tests/property/strength-default.test.ts",
+        "assertion": "canonical Property strength default permits fresh verified mutation evidence"
+      }
+    ],
+    "command": {
+      "executable": "/opt/homebrew/Cellar/node/26.5.0/bin/node",
+      "args": [
+        "/private/tmp/seal-property-coda-L9VTGo/node_modules/vitest/vitest.mjs",
+        "run",
+        "tests/property/strength-default.test.ts",
+        "--root",
+        "/private/tmp/seal-property-coda-L9VTGo",
+        "--reporter=json",
+        "--outputFile=/var/folders/xx/_15f_6pn4dgb5l2tr2wll6fh0000gn/T/orca-vitest-INcvVC/report.json",
+        "--maxWorkers=1",
+        "--no-file-parallelism",
+        "--expect.requireAssertions"
+      ],
+      "exit_code": 0,
+      "stdout": "JSON report written to /var/folders/xx/_15f_6pn4dgb5l2tr2wll6fh0000gn/T/orca-vitest-INcvVC/report.json\n",
+      "stderr": ""
+    },
+    "report": "{\"numTotalTestSuites\":1,\"numPassedTestSuites\":1,\"numFailedTestSuites\":0,\"numPendingTestSuites\":0,\"numTotalTests\":3,\"numPassedTests\":3,\"numFailedTests\":0,\"numPendingTests\":0,\"numTodoTests\":0,\"snapshot\":{\"added\":0,\"failure\":false,\"filesAdded\":0,\"filesRemoved\":0,\"filesRemovedList\":[],\"filesUnmatched\":0,\"filesUpdated\":0,\"matched\":0,\"total\":0,\"unchecked\":0,\"uncheckedKeysByFile\":[],\"unmatched\":0,\"updated\":0,\"didUpdate\":false},\"startTime\":1791342231657,\"success\":true,\"testResults\":[{\"assertionResults\":[{\"ancestorTitles\":[],\"fullName\":\"canonical Property strength default blocks omitted evidence\",\"status\":\"passed\",\"title\":\"canonical Property strength default blocks omitted evidence\",\"duration\":4.461332999999996,\"failureMessages\":[],\"meta\":{},\"tags\":[]},{\"ancestorTitles\":[],\"fullName\":\"canonical Property strength ignores title keywords and preserves explicit optional prose\",\"status\":\"passed\",\"title\":\"canonical Property strength ignores title keywords and preserves explicit optional prose\",\"duration\":0.17866700000001856,\"failureMessages\":[],\"meta\":{},\"tags\":[]},{\"ancestorTitles\":[],\"fullName\":\"canonical Property strength default permits fresh verified mutation evidence\",\"status\":\"passed\",\"title\":\"canonical Property strength default permits fresh verified mutation evidence\",\"duration\":0.22237499999999955,\"failureMessages\":[],\"meta\":{},\"tags\":[]}],\"startTime\":1791342231800,\"endTime\":1791342231805.2224,\"status\":\"passed\",\"message\":\"\",\"name\":\"/private/tmp/seal-property-coda-L9VTGo/tests/property/strength-default.test.ts\"}]}",
+    "report_sha256": "f943e8c9bbf53992b77df3abe8a4099b4482103bbf350e6abf299e4a07cc2745",
+    "property_report": "[]",
+    "property_report_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "property_invocation": "f811efe3-9639-4509-ad01-2d71192b9eaa",
+    "assertions": [
+      {
+        "id": "canonical-strength-missing-keyword",
+        "test": "tests/property/strength-default.test.ts",
+        "name": "canonical Property strength default blocks omitted evidence",
+        "status": "passed",
+        "failures": []
+      },
+      {
+        "id": "canonical-strength-description-boundary",
+        "test": "tests/property/strength-default.test.ts",
+        "name": "canonical Property strength ignores title keywords and preserves explicit optional prose",
+        "status": "passed",
+        "failures": []
+      },
+      {
+        "id": "canonical-strength-verified-default",
+        "test": "tests/property/strength-default.test.ts",
+        "name": "canonical Property strength default permits fresh verified mutation evidence",
+        "status": "passed",
+        "failures": []
+      }
+    ],
+    "reasons": [],
+    "started_at": "2026-10-07T03:03:51.457Z",
+    "finished_at": "2026-10-07T03:03:51.893Z"
+  },
+  "replay": null,
+  "inputs": {
+    "orca/changes/property-strength-default/specs/property-strength-default/spec.md": "8282c585e49c6d67032abe68d3b5e77881941f2fc8ef8b97f3ac5a509bfdfd5b",
+    "orca/changes/property-strength-default/.traceability.yaml": "a37445a94cc92ce7fcebc977e44792795f3db8efd899e22ac6abbf7e84e5ddb1",
+    "orca/changes/property-strength-default/intent.md": "a98c7807f01487cf07ee6aefdafe3cde7794d42c2f68695bc7e1bf4c55144b95"
+  },
+  "reasons": [],
+  "uncovered": []
+}

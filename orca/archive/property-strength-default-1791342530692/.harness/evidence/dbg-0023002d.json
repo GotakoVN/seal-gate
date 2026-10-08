@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "session_id": "dbg-0023002d",
+  "bound_repo_sha": "df6cc3c6ac96f6446a87a54446228c73c9b353ab",
+  "serves_task": null,
+  "symptom": {
+    "description": "Seal omits default SHALL mandatory properties and reads strength from titles",
+    "repro_cmd": "npm exec vitest run -- tests/property/strength-default.test.ts",
+    "repro_sha256": null
+  },
+  "cycles": [
+    {
+      "id": "c-1",
+      "status": "confirmed",
+      "hypothesis": "Count reads title and only explicit MUST/SHALL, unlike canonical default SHALL description",
+      "prediction": "Default missing-keyword gate fails BLOCK assertion and MUST title with SHOULD prose wrongly blocks",
+      "probe": {
+        "action": "instrumentation",
+        "kind": "instrumentation"
+      },
+      "observation": {
+        "captured": "{\"passed\": 1, \"failed\": 2, \"failures\": [{\"name\": \"canonical Property strength default blocks omitted evidence\", \"message\": [\"AssertionError: expected 'PASS_WITH_WARNINGS' to be 'BLOCK' // Object.is equality\\n    at /private/tmp/seal-property-coda-L9VTGo/tests/property/strength-default.test.ts:13:28\\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\\n    at file:///private/tmp/seal-property-coda-L9VTGo/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20\"]}, {\"name\": \"canonical Property strength ignores title keywords and preserves explicit optional prose\", \"message\": [\"AssertionError: expected true to be false // Object.is equality\\n    at /private/tmp/seal-property-coda-L9VTGo/tests/property/strength-default.test.ts:19:77\\n    at processTicksAndRejections (node:internal/process/task_queues:104:5)\\n    at file:///private/tmp/seal-property-coda-L9VTGo/node_modules/@vitest/runner/dist/chunk-artifact.js:1903:20\"]}]}",
+        "observation_sha256": "db76d3baa29ce9edf8620c1de4c3d36b8b6996ad2741e6cc464c234abb6779de"
+      },
+      "verdict": {
+        "prediction_held": true,
+        "result": "CONFIRMED",
+        "reason": "Real Seal.review regression assertions fail in both predicted directions; valid evidence control passed"
+      }
+    }
+  ],
+  "fix": {
+    "authorized_by_cycle": "c-1",
+    "applied": false,
+    "diff_sha256": null
+  },
+  "escalation": {
+    "max_refuted_cycles": 4,
+    "on_exhaust": "STOP and escalate — hand session + all cycles to stronger model or human"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "scenarios": [
+    {
+      "scenario": "canonical-strength-missing-keyword",
+      "test": "tests/property/strength-default.test.ts",
+      "assertion": "canonical Property strength default blocks omitted evidence"
+    },
+    {
+      "scenario": "canonical-strength-description-boundary",
+      "test": "tests/property/strength-default.test.ts",
+      "assertion": "canonical Property strength ignores title keywords and preserves explicit optional prose"
+    },
+    {
+      "scenario": "canonical-strength-verified-default",
+      "test": "tests/property/strength-default.test.ts",
+      "assertion": "canonical Property strength default permits fresh verified mutation evidence"
+    }
+  ]
+}
